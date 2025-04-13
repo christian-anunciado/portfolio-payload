@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
@@ -68,6 +69,7 @@ export default buildConfig({
     // storage-adapter-placeholder
   ],
   secret: process.env.PAYLOAD_SECRET,
+  sharp,
   typescript: {
     // output typescript file to both current, and astro/shared
     outputFile: path.resolve(dirname, '../../portfolio-astro/src/shared/payload-types.ts'),
