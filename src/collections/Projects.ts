@@ -3,6 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
 import { slugField } from '@/fields/slug'
+import { triggerBuild } from '@/hooks/triggerBuild'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
@@ -45,7 +46,8 @@ export const Projects: CollectionConfig = {
         {
           name: 'technology',
           type: 'relationship',
-          relationTo: 'media',
+          // @ts-ignore
+          relationTo: 'icons',
         },
       ],
     },
@@ -57,6 +59,14 @@ export const Projects: CollectionConfig = {
       name: 'githubUrl',
       type: 'text',
     },
+    {
+      name: 'sortOrder',
+      type: 'number',
+      defaultValue: 0,
+    },
     ...slugField(),
   ],
+  hooks: {
+    afterChange: [triggerBuild],
+  },
 }

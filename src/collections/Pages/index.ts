@@ -11,7 +11,7 @@ import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { Technology } from '../../blocks/Technology/config'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { revalidateDelete, revalidatePage, triggerBuild } from './hooks/revalidatePage'
+import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 
 import {
   MetaDescriptionField,
@@ -25,6 +25,7 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
+import { triggerBuild } from '@/hooks/triggerBuild'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
