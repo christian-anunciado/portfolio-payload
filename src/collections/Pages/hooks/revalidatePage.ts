@@ -42,8 +42,13 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
   return doc
 }
 
-export const triggerBuild: CollectionAfterChangeHook<Page> = async ({ context }) => {
+export const triggerBuild: CollectionAfterChangeHook<Page> = async ({ context, doc }) => {
   if (context.triggerBuildAfterChange === false) {
+    return
+  }
+
+  // only trigger if the page is published
+  if (doc._status !== 'published') {
     return
   }
 
