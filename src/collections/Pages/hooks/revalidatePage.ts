@@ -42,8 +42,14 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
   return doc
 }
 
-export const triggerBuild = async () => {
+export const triggerBuild: CollectionAfterChangeHook<Page> = async ({ context }) => {
+  if (context.triggerBuildAfterChange === false) {
+    return
+  }
+
   await fetch(process.env.VERCEL_DEPLOY_HOOK, {
     method: 'POST',
   })
+
+  context.triggerBuildAfterChange = false
 }
