@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { slugField } from '@/fields/slug'
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Archive } from '../../blocks/ArchiveBlock/config'
@@ -8,8 +9,6 @@ import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { Technology } from '../../blocks/Technology/config'
-import { hero } from '@/heros/config'
-import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage, triggerBuild } from './hooks/revalidatePage'
@@ -21,7 +20,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { linkGroup } from '@/fields/linkGroup'
 import {
   FixedToolbarFeature,
   InlineToolbarFeature,

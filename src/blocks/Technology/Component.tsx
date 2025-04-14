@@ -1,5 +1,4 @@
 import React from 'react'
-import { cn } from '@/utilities/ui'
 
 type TechItem = {
   name: string

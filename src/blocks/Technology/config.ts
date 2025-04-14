@@ -14,13 +14,9 @@ export const Technology: Block = {
         {
           name: 'default',
           type: 'relationship',
-          relationTo: 'media',
+          // @ts-ignore
+          relationTo: 'icons',
           required: true,
-        },
-        {
-          name: 'darkMode',
-          type: 'relationship',
-          relationTo: 'media',
         },
       ],
     },

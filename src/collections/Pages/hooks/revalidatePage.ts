@@ -43,6 +43,11 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
 }
 
 export const triggerBuild: CollectionAfterChangeHook<Page> = async ({ context, doc }) => {
+  // only trigger in vercel production
+  if (process.env.VERCEL_ENV !== 'production') {
+    return
+  }
+
   if (context.triggerBuildAfterChange === false) {
     return
   }
