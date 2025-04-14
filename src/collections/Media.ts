@@ -96,6 +96,7 @@ export const Media: CollectionConfig = {
           data: {
             ...doc,
             url: `${process.env.UPLOADTHING_URL}/f/${doc._key}`,
+            thumbnail: `${process.env.UPLOADTHING_URL}/f/${doc._key}`,
           },
           context: {
             triggerAfterChange: false,
