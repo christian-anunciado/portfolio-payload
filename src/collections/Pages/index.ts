@@ -12,7 +12,7 @@ import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
+import { revalidateDelete, revalidatePage, triggerBuild } from './hooks/revalidatePage'
 
 import {
   MetaDescriptionField,
@@ -169,9 +169,9 @@ export const Pages: CollectionConfig<'pages'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [revalidatePage],
+    afterChange: [revalidatePage, triggerBuild],
     beforeChange: [populatePublishedAt],
-    afterDelete: [revalidateDelete],
+    afterDelete: [revalidateDelete, triggerBuild],
   },
   versions: {
     drafts: {

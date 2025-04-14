@@ -41,3 +41,9 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
 
   return doc
 }
+
+export const triggerBuild = async () => {
+  await fetch(process.env.VERCEL_DEPLOY_HOOK, {
+    method: 'POST',
+  })
+}
