@@ -18,6 +18,11 @@ export const Projects: CollectionConfig = {
   },
   fields: [
     {
+      name: 'featured',
+      type: 'checkbox',
+      defaultValue: false,
+    },
+    {
       name: 'title',
       type: 'text',
       required: true,
