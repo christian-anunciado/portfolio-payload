@@ -17,6 +17,7 @@ import { getServerSideURL } from './utilities/getURL'
 import { Posts } from './collections/Posts'
 import { Categories } from './collections/Categories'
 import { Icons } from './collections/Icons'
+import { Experience } from './collections/Experience'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -63,7 +64,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
-  collections: [Pages, Projects, Icons, Media, Posts, Categories, Users],
+  collections: [Pages, Experience, Projects, Icons, Media, Posts, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
