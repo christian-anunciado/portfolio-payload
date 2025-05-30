@@ -53,7 +53,6 @@ export const Experience: CollectionConfig = {
     {
       name: 'description',
       type: 'textarea',
-      required: true,
     },
     {
       name: 'type',
